@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Animal App</string>
+    <string name="logo_name">Animal Sound Recognition</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="birthday">Birthday</string>
+    <string name="uta_id">UTA ID</string>
+    <string name="phone_number">Phone Number</string>
+</resources>
