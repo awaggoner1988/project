@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AnimalApp">
-        <activity android:name=".Common.LoginSignup.Signup"></activity>
+        <activity android:name=".Common.ModelInfo"></activity>
+        <activity android:name=".Common.LoginSignup.Signup" />
         <activity android:name=".Common.LoginSignup.Login" />
         <activity android:name=".Common.SplashScreen">
             <intent-filter>
