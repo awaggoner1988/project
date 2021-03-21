@@ -14,4 +14,5 @@
     <string name="birthday">Birthday</string>
     <string name="uta_id">UTA ID</string>
     <string name="phone_number">Phone Number</string>
+    <string name="foo">Bar</string>
 </resources>
