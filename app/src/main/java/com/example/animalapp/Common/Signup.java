@@ -1,4 +1,4 @@
-package com.example.animalapp.Common.LoginSignup;
+package com.example.animalapp.Common;
 
 import androidx.appcompat.app.AppCompatActivity;
 

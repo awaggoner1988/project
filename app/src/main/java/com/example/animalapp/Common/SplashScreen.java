@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 
-import com.example.animalapp.Common.LoginSignup.Login;
-import com.example.animalapp.Common.LoginSignup.Signup;
 import com.example.animalapp.R;
 
 public class SplashScreen extends AppCompatActivity {

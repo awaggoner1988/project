@@ -1,4 +1,4 @@
-package com.example.animalapp.Common.LoginSignup;
+package com.example.animalapp.Common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 
-import com.example.animalapp.Common.SplashScreen;
 import com.example.animalapp.R;
 
 public class Login extends AppCompatActivity {
@@ -25,6 +24,17 @@ public class Login extends AppCompatActivity {
 
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(findViewById(R.id.login_back_button), "transition_signup");
+
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
+        startActivity(intent, options.toBundle());
+    }
+
+    public void callSignupScreen(View view){
+
+        Intent intent = new Intent(getApplicationContext(), Signup.class);
+
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.login_signup_button), "transition_signup");
 
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
         startActivity(intent, options.toBundle());
