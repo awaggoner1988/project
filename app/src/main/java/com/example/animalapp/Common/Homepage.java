@@ -22,7 +22,12 @@ public class Homepage extends AppCompatActivity {
             }
         });
 
-
+        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ModelInfo.class));
+            }
+        });
     }
 
 
