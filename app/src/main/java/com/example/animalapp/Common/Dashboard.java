@@ -8,12 +8,12 @@ import android.view.View;
 
 import com.example.animalapp.R;
 
-public class Homepage extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
+        setContentView(R.layout.activity_dashboard);
 
         findViewById(R.id.button4).setOnClickListener(new View.OnClickListener(){
             @Override
