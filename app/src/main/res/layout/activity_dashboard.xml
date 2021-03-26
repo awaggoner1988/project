@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:background="#2196F3"
     tools:context=".Common.Dashboard">
-
-
-
+    
 
     <TextView
         android:id="@+id/textView2"
