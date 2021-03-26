@@ -16,27 +16,13 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        findViewById(R.id.login_button).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Dashboard.class));
+            }
+        });
     }
 
-    public void callLoginBackButton(View view){
-
-        Intent intent = new Intent(getApplicationContext(), SplashScreen.class);
-
-        Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.login_back_button), "transition_signup");
-
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
-        startActivity(intent, options.toBundle());
-    }
-
-    public void callSignupScreen(View view){
-
-        Intent intent = new Intent(getApplicationContext(), Signup.class);
-
-        Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.login_signup_button), "transition_signup");
-
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
-        startActivity(intent, options.toBundle());
-    }
 }
