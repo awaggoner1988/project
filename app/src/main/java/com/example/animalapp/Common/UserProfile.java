@@ -1,10 +1,12 @@
- package com.example.homepage;
+ package com.example.animalapp.Common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class UserProfile extends AppCompatActivity {
+import com.example.animalapp.R;
+
+ public class UserProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
