@@ -39,8 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:drawablePadding="12dp"
-                android:text="Ross Geller" />
+                android:drawablePadding="12dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,8 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
-                android:drawablePadding="12dp"
-                android:text="Geller@gmail.com" />
+                android:drawablePadding="12dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,8 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/birthdayi"
-                android:drawablePadding="12dp"
-                android:text="06/11/1997" />
+                android:drawablePadding="12dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,8 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_hhv1l801"
-                android:drawablePadding="12dp"
-                android:text="Student" />
+                android:drawablePadding="12dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,19 +95,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/idnumber"
-                android:drawablePadding="12dp"
-                android:text="1000000" />
+                android:drawablePadding="12dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
+            android:id="@+id/buttonEditProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit profile"/>
+            android:onClick="update"
+            android:text="Edit profile" />
         <Button
+            android:id="@+id/buttonDeleteAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="delet account"/>
+            android:text="delete account"/>
         <Button
+            android:id="@+id/buttonHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Home"/>
