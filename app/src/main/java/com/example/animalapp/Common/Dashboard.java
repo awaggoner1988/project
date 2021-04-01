@@ -28,6 +28,12 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ModelInfo.class));
             }
         });
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), UserProfile.class));
+            }
+        });
     }
 
 
