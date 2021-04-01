@@ -2,8 +2,10 @@ package com.example.animalapp.Common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 
 import com.example.animalapp.R;
@@ -35,6 +37,5 @@ public class Dashboard extends AppCompatActivity {
             }
         });
     }
-
 
 }

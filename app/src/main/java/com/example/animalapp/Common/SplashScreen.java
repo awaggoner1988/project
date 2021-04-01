@@ -16,8 +16,9 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-    }
 
+
+    }
     public void callLoginScreen(View view){
 
         Intent intent = new Intent(getApplicationContext(), Login.class);
@@ -39,4 +40,5 @@ public class SplashScreen extends AppCompatActivity {
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SplashScreen.this, pairs);
         startActivity(intent, options.toBundle());
     }
+
 }

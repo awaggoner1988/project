@@ -31,7 +31,7 @@ public class PlaybackFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(PlaybackViewModel.class);
+      //  mViewModel = new ViewModelProvider(this).get(PlaybackViewModel.class);
         // TODO: Use the ViewModel
     }
 
