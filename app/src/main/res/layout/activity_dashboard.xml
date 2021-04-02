@@ -48,7 +48,7 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="274dp"
         android:layout_marginBottom="20dp"
-        android:text="Create profile"
+        android:text="Record Sound"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
