@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AnimalApp">
-        <activity android:name=".Common.Dashboard"></activity>
+        <activity android:name=".Common.UserProfile"></activity>
+        <activity android:name=".Common.user_profile" />
+        <activity android:name=".Common.Dashboard" />
         <activity android:name=".Common.Statistics" />
         <activity android:name=".Common.ModelInfo" />
         <activity android:name=".Common.Signup" />

@@ -17,25 +17,25 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Statistics.class));
             }
         });
 
-        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ModelInfo.class));
             }
         });
-        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener(){
+
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), UserProfile.class));
             }
         });
     }
-
 }

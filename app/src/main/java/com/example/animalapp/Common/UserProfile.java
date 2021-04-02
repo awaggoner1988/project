@@ -1,14 +1,16 @@
- package com.example.animalapp.Common;
+package com.example.animalapp.Common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 
 import com.example.animalapp.R;
 
- public class UserProfile extends AppCompatActivity {
+public class UserProfile extends AppCompatActivity {
 
 
     @Override
@@ -23,8 +25,8 @@ import com.example.animalapp.R;
             }
         });
     }
-public void update(View view){
+    public void update(View view){
 
     }
 
- }
+}
