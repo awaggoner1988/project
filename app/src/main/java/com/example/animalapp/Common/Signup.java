@@ -16,9 +16,19 @@ public class Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-    }
 
-    public void callDashboardScreen(View view){
-        // need to add code to go to dashboard here
+        findViewById(R.id.signup_back_button).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SplashScreen.class));
+            }
+        });
+
+        findViewById(R.id.signup_signup_button).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Dashboard.class));
+            }
+        });
     }
 }

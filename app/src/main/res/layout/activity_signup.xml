@@ -14,11 +14,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/signup_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:backgroundTint="#00000000"
             android:src="@drawable/general_back_icon_foreground" />
 
         <TextView
@@ -239,12 +240,12 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/signup_signup_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/signup"
             android:background="@color/light_blue_accent"
             android:textColor="@color/white"
-            android:onClick="callDashboardScreen"
             android:layout_marginTop="20dp"/>
 
 
