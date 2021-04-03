@@ -1,34 +1,109 @@
 package com.example.animalapp.Common;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActivityOptions;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.animalapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 
-public class Signup extends AppCompatActivity {
+public class Signup extends AppCompatActivity implements View.OnClickListener {
+
+    private Button buttonSignupButton;
+    private ImageButton imageButtonBackButton;
+    private TextInputLayout inputLayoutFirstName, inputLayoutLastName, inputLayoutUsername, inputLayoutEmail,
+            inputLayoutPhoneNumber, inputLayoutUTAID, inputLayoutPassword;
+    private DatePicker datePickerBirthday;
+    private ProgressDialog progressDialog;
+
+    private FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        findViewById(R.id.signup_back_button).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SplashScreen.class));
-            }
-        });
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        findViewById(R.id.signup_signup_button).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Dashboard.class));
-            }
-        });
+        progressDialog = new ProgressDialog(this);
+
+        buttonSignupButton = findViewById(R.id.signup_signup_button);
+        imageButtonBackButton = findViewById(R.id.signup_back_button);
+
+        inputLayoutFirstName = findViewById(R.id.signup_first_name);
+        inputLayoutLastName = findViewById(R.id.signup_last_name);
+        inputLayoutUsername = findViewById(R.id.signup_username);
+        inputLayoutEmail = findViewById(R.id.signup_email);
+        inputLayoutPhoneNumber = findViewById(R.id.signup_phone_number);
+        inputLayoutUTAID = findViewById(R.id.signup_uta_id);
+        datePickerBirthday = findViewById(R.id.signup_birthday);
+        inputLayoutPassword = findViewById(R.id.signup_password_1);
+
+        buttonSignupButton.setOnClickListener(this);
+        imageButtonBackButton.setOnClickListener(this);
+
+    }
+
+    private void registerUser() {
+        String firstName = inputLayoutFirstName.getEditText().getText().toString().trim();
+        String lastName = inputLayoutLastName.getEditText().getText().toString().trim();
+        String username = inputLayoutUsername.getEditText().getText().toString().trim();
+        String email = inputLayoutEmail.getEditText().getText().toString().trim();
+        String phoneNumber = inputLayoutPhoneNumber.getEditText().getText().toString().trim();
+        String utaID = inputLayoutUTAID.getEditText().getText().toString().trim();
+        String password = inputLayoutPassword.getEditText().getText().toString().trim();
+
+        if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(username) || TextUtils.isEmpty(email)
+                || TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(utaID) || TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Please fill out all information", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        progressDialog.setMessage("Registering User...");
+        progressDialog.show();
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                       if(task.isSuccessful()) {
+                           progressDialog.dismiss();
+                           Toast.makeText(Signup.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                           startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                       } else {
+                           progressDialog.dismiss();
+                           FirebaseAuthException e = (FirebaseAuthException )task.getException();
+                           Toast.makeText(Signup.this, "Failed Registration: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                           return;
+                       }
+                    }
+                });
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == buttonSignupButton) {
+            registerUser();
+        }
+
+        if (v == imageButtonBackButton) {
+            startActivity(new Intent(getApplicationContext(), SplashScreen.class));
+        }
     }
 }
