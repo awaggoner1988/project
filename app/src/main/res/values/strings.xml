@@ -15,4 +15,9 @@
     <string name="uta_id">UTA ID</string>
     <string name="phone_number">Phone Number</string>
     <string name="model_information">Model Information</string>
+    <string name="logout">Logout</string>
+    <string name="rec_and_class">Record and Classify</string>
+    <string name="profile">Profile</string>
+    <string name="statistics">Statistics</string>
+    <string name="model_info">Model Information</string>
 </resources>

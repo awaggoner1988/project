@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3"
+    android:background="@color/light_blue_main"
     tools:context=".Common.Dashboard">
 
-
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dashboard_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00000000"
@@ -18,111 +17,101 @@
         android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintVertical_bias="0.05" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_title_text" />
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/dashboard_logout_button"
+        android:background="@color/light_blue_accent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="250dp"
         android:layout_marginBottom="19dp"
-        android:text="logout"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:text="@string/logout"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_classify_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_title_text" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/dashboard_classify_button"
+        android:background="@color/light_blue_accent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="274dp"
         android:layout_marginBottom="20dp"
-        android:text="Create profile"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:text="@string/rec_and_class"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_profile_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_logout_button" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/dashboard_profile_button"
+        android:background="@color/light_blue_accent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="61dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="285dp"
         android:layout_marginBottom="12dp"
-        android:text="Go to profile"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        android:text="@string/profile"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_stats_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_classify_button" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/dashboard_stats_button"
+        android:background="@color/light_blue_accent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="61dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="293dp"
         android:layout_marginBottom="103dp"
-        android:text="statistics"
+        android:text="@string/statistics"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_profile_button" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="-40dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="344dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="47dp"
-        android:fontFamily="serif"
-        android:text="Choose Your Options "
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/dashboard_model_info_button"
+        android:background="@color/light_blue_accent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="222dp"
         android:layout_marginBottom="33dp"
-        android:text="model info"
+        android:text="@string/model_info"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_stats_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

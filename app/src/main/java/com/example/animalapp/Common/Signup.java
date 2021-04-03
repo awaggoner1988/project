@@ -20,6 +20,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.time.format.DateTimeFormatter;
 
 public class Signup extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,6 +36,10 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
     private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
+
+    String firstName, lastName, username, email, date,
+            phoneNumber, utaID, password1, password2, UID;
 
 
     @Override
@@ -39,6 +48,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_signup);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
         progressDialog = new ProgressDialog(this);
 
@@ -61,14 +71,15 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void registerUser() {
-        String firstName = inputLayoutFirstName.getEditText().getText().toString().trim();
-        String lastName = inputLayoutLastName.getEditText().getText().toString().trim();
-        String username = inputLayoutUsername.getEditText().getText().toString().trim();
-        String email = inputLayoutEmail.getEditText().getText().toString().trim();
-        String phoneNumber = inputLayoutPhoneNumber.getEditText().getText().toString().trim();
-        String utaID = inputLayoutUTAID.getEditText().getText().toString().trim();
-        String password1 = inputLayoutPassword1.getEditText().getText().toString().trim();
-        String password2 = inputLayoutPassword2.getEditText().getText().toString().trim();
+        firstName = inputLayoutFirstName.getEditText().getText().toString().trim();
+        lastName = inputLayoutLastName.getEditText().getText().toString().trim();
+        username = inputLayoutUsername.getEditText().getText().toString().trim();
+        email = inputLayoutEmail.getEditText().getText().toString().trim();
+
+        phoneNumber = inputLayoutPhoneNumber.getEditText().getText().toString().trim();
+        utaID = inputLayoutUTAID.getEditText().getText().toString().trim();
+        password1 = inputLayoutPassword1.getEditText().getText().toString().trim();
+        password2 = inputLayoutPassword2.getEditText().getText().toString().trim();
 
         if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(username) || TextUtils.isEmpty(email)
                 || TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(utaID) || TextUtils.isEmpty(password1)) {
@@ -76,7 +87,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
             return;
         }
 
-        if (password1 != password2) {
+        if (!password1.equals(password2)) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -90,6 +101,9 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                        if(task.isSuccessful()) {
                            progressDialog.dismiss();
+
+                           storeNewUserData();
+
                            Toast.makeText(Signup.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                            startActivity(new Intent(getApplicationContext(), Dashboard.class));
                        } else {
@@ -100,6 +114,17 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                        }
                     }
                 });
+    }
+
+    private void storeNewUserData() {
+        DatabaseReference reference = firebaseDatabase.getReference("Users");
+
+        UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        UserHelperClass addNewUser = new UserHelperClass(firstName, lastName, username,
+                email, date, phoneNumber, utaID, password1, UID);
+
+        reference.child(username).setValue(addNewUser);
     }
 
     @Override
