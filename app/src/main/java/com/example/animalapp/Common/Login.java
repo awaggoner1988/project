@@ -61,10 +61,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         progressDialog.setMessage("Signing in...");

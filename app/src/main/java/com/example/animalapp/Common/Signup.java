@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.animalapp.R;
@@ -27,7 +26,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
     private Button buttonSignupButton;
     private ImageButton imageButtonBackButton;
     private TextInputLayout inputLayoutFirstName, inputLayoutLastName, inputLayoutUsername, inputLayoutEmail,
-            inputLayoutPhoneNumber, inputLayoutUTAID, inputLayoutPassword;
+            inputLayoutPhoneNumber, inputLayoutUTAID, inputLayoutPassword1, inputLayoutPassword2;
     private DatePicker datePickerBirthday;
     private ProgressDialog progressDialog;
 
@@ -53,7 +52,8 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         inputLayoutPhoneNumber = findViewById(R.id.signup_phone_number);
         inputLayoutUTAID = findViewById(R.id.signup_uta_id);
         datePickerBirthday = findViewById(R.id.signup_birthday);
-        inputLayoutPassword = findViewById(R.id.signup_password_1);
+        inputLayoutPassword1 = findViewById(R.id.signup_password_1);
+        inputLayoutPassword2 = findViewById(R.id.signup_password_2);
 
         buttonSignupButton.setOnClickListener(this);
         imageButtonBackButton.setOnClickListener(this);
@@ -67,18 +67,24 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         String email = inputLayoutEmail.getEditText().getText().toString().trim();
         String phoneNumber = inputLayoutPhoneNumber.getEditText().getText().toString().trim();
         String utaID = inputLayoutUTAID.getEditText().getText().toString().trim();
-        String password = inputLayoutPassword.getEditText().getText().toString().trim();
+        String password1 = inputLayoutPassword1.getEditText().getText().toString().trim();
+        String password2 = inputLayoutPassword2.getEditText().getText().toString().trim();
 
         if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(username) || TextUtils.isEmpty(email)
-                || TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(utaID) || TextUtils.isEmpty(password)) {
+                || TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(utaID) || TextUtils.isEmpty(password1)) {
             Toast.makeText(this, "Please fill out all information", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password1 != password2) {
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
 
         progressDialog.setMessage("Registering User...");
         progressDialog.show();
 
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
+        firebaseAuth.createUserWithEmailAndPassword(email, password1)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
