@@ -14,6 +14,7 @@
         android:padding="20dp">
 
         <TextView
+            android:id="@+id/username_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -36,10 +37,11 @@
             android:hint="Full Name">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullName_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:drawablePadding="12dp"/>
+                android:drawablePadding="12dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,6 +52,7 @@
             android:hint="E-mail">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
@@ -64,6 +67,7 @@
             android:hint="Birth Date">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/date_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/birthdayi"
@@ -75,12 +79,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="11dp"
-            android:hint="Profession">
+            android:hint="Phone Number">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneNumber_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_hhv1l801"
+                android:drawableLeft="@drawable/ic_baseline_phone_24"
                 android:drawablePadding="12dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -92,6 +97,7 @@
             android:hint="UTA ID">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/utaID_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/idnumber"
