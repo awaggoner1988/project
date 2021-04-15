@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Common.UserProfile"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/light_blue_main">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="126dp"
         android:background="#87ceff"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:backgroundTint="@color/light_blue_main">
 
         <TextView
             android:id="@+id/username_profile"
@@ -19,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-black"
-            android:text="USERNAME"
+            android:text="@string/username"
             android:textSize="35sp" />
 
     </RelativeLayout>
@@ -110,17 +112,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="update"
-            android:text="Edit profile" />
+            android:text="Edit profile"
+            android:backgroundTint="@color/light_blue_accent"/>
         <Button
             android:id="@+id/buttonDeleteAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="delete account"/>
+            android:text="delete account"
+            android:backgroundTint="@color/light_blue_accent"/>
         <Button
             android:id="@+id/buttonHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home"/>
+            android:text="Home"
+            android:backgroundTint="@color/light_blue_accent"/>
     </LinearLayout>
 
 </LinearLayout>

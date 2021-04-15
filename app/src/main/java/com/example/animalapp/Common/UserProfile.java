@@ -9,9 +9,21 @@ import android.util.Pair;
 import android.view.View;
 
 import com.example.animalapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class UserProfile extends AppCompatActivity {
 
+    FirebaseAuth firebaseAuth;
+    FirebaseDatabase firebaseDatabase;
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +37,5 @@ public class UserProfile extends AppCompatActivity {
             }
         });
     }
-    public void update(View view){
-
-    }
-
+    
 }
