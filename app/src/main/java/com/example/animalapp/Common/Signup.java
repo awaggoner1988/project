@@ -31,15 +31,14 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
     private Button buttonSignupButton;
     private ImageButton imageButtonBackButton;
     private TextInputLayout inputLayoutFirstName, inputLayoutLastName, inputLayoutUsername, inputLayoutEmail,
-            inputLayoutPhoneNumber, inputLayoutUTAID, inputLayoutPassword1, inputLayoutPassword2;
-    private DatePicker datePickerBirthday;
+            inputLayoutPhoneNumber, inputLayoutUTAID, inputLayoutPassword1, inputLayoutPassword2, inputLayoutBirthday;
     private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
     String firstName, lastName, username, email, date,
-            phoneNumber, utaID, password1, password2, UID;
+            phoneNumber, utaID, password1, password2, UID, birthday;
 
 
     @Override
@@ -61,7 +60,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         inputLayoutEmail = findViewById(R.id.signup_email);
         inputLayoutPhoneNumber = findViewById(R.id.signup_phone_number);
         inputLayoutUTAID = findViewById(R.id.signup_uta_id);
-        datePickerBirthday = findViewById(R.id.signup_birthday);
+        inputLayoutBirthday = findViewById(R.id.signup_birthday);
         inputLayoutPassword1 = findViewById(R.id.signup_password_1);
         inputLayoutPassword2 = findViewById(R.id.signup_password_2);
 
@@ -75,7 +74,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         lastName = inputLayoutLastName.getEditText().getText().toString().trim();
         username = inputLayoutUsername.getEditText().getText().toString().trim();
         email = inputLayoutEmail.getEditText().getText().toString().trim();
-
+        birthday = inputLayoutBirthday.getEditText().getText().toString().trim();
         phoneNumber = inputLayoutPhoneNumber.getEditText().getText().toString().trim();
         utaID = inputLayoutUTAID.getEditText().getText().toString().trim();
         password1 = inputLayoutPassword1.getEditText().getText().toString().trim();
@@ -122,7 +121,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         UserHelperClass addNewUser = new UserHelperClass(firstName, lastName, username,
-                email, date, phoneNumber, utaID, password1, UID);
+                email, date, phoneNumber, utaID, password1, UID, birthday);
 
         reference.child(username).setValue(addNewUser);
     }

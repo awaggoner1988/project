@@ -3,12 +3,12 @@ package com.example.animalapp.Common;
 public class UserHelperClass {
 
     String firstName, lastName, username, email, date,
-            phoneNumber, utaID, password;
+            phoneNumber, utaID, password, UID, birthday;
 
     public UserHelperClass(){}
 
-    public UserHelperClass(String firstName, String lastName, String username, String email,
-                           String date, String phoneNumber, String utaID, String password, String UID) {
+    public UserHelperClass(String firstName, String lastName, String username, String email, String date,
+                           String phoneNumber, String utaID, String password, String UID, String birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -17,6 +17,8 @@ public class UserHelperClass {
         this.phoneNumber = phoneNumber;
         this.utaID = utaID;
         this.password = password;
+        this.UID = UID;
+        this.birthday = birthday;
     }
 
     public String getFirstName() {
@@ -82,4 +84,13 @@ public class UserHelperClass {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getUID() { return UID; }
+
+    public void setUID(String UID) { this.UID = UID; }
+
+    public String getBirthday() { return birthday; }
+
+    public void setBirthday(String birthday) { this.birthday = birthday; }
+
 }
