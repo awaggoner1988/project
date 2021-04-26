@@ -9,10 +9,18 @@
         android:id="@+id/recordFragment"
         android:name="com.example.animalapp.Common.RecordFragment"
         android:label="fragment_record"
-        tools:layout="@layout/fragment_record" />
+        tools:layout="@layout/fragment_record" >
+        <action
+            android:id="@+id/action_recordFragment_to_playbackFragment"
+            app:destination="@id/playbackFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/slide_in"
+            />
+    </fragment>
     <fragment
         android:id="@+id/playbackFragment"
         android:name="com.example.animalapp.Common.PlaybackFragment"
         android:label="playback_fragment"
-        tools:layout="@layout/playback_fragment" />
+        tools:layout="@layout/playback_fragment"
+        />
 </navigation>
