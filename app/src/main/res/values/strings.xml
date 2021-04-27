@@ -20,4 +20,6 @@
     <string name="profile">Profile</string>
     <string name="statistics">Statistics</string>
     <string name="model_info">Model Information</string>
+    <string name="forgot_password_detail">Enter the email associated with the account.</string>
+    <string name="next">Next</string>
 </resources>

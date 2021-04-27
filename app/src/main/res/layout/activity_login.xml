@@ -50,7 +50,7 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/white"
                 app:hintTextColor="@color/white"
-                app:startIconDrawable="@drawable/user_icon_foreground"
+                app:startIconDrawable="@drawable/email_icon_foreground"
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -85,27 +85,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
-                <CheckBox
-                    style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:buttonTint="@color/white"
-                    android:text="@string/remember_me"
-                    android:textColor="@color/white" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:background="#00000000"
-                    android:text="@string/forgot_password"
-                    android:textColor="@color/white" />
 
             </RelativeLayout>
 
@@ -116,17 +100,27 @@
                 android:layout_marginTop="20dp"
                 android:background="@color/light_blue_accent"
                 android:text="@string/login"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"/>
 
             <Button
                 android:id="@+id/login_signup_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="#00000000"
                 android:text="@string/signup"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/login_forgot_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:background="#00000000"
+                android:text="@string/forgot_password"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 

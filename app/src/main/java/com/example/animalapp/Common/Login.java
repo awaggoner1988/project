@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
-    private Button buttonLoginButton, buttonSignupButton;
+    private Button buttonLoginButton, buttonSignupButton, buttonForgotButton;
     private ImageButton buttonBackButton;
     private TextInputLayout inputLayoutEmail, inputLayoutPassword;
     private ProgressDialog progressDialog;
@@ -50,12 +50,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         buttonBackButton = findViewById(R.id.login_back_button);
         buttonLoginButton = findViewById(R.id.login_login_button);
         buttonSignupButton = findViewById(R.id.login_signup_button);
+        buttonForgotButton = findViewById(R.id.login_forgot_button);
         inputLayoutEmail = findViewById(R.id.login_email);
         inputLayoutPassword = findViewById(R.id.login_password);
 
         buttonBackButton.setOnClickListener(this);
         buttonLoginButton.setOnClickListener(this);
         buttonSignupButton.setOnClickListener(this);
+        buttonForgotButton.setOnClickListener(this);
     }
 
     private void signInUser() {
@@ -85,7 +87,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                             startActivity(new Intent(getApplicationContext(), Dashboard.class));
                         } else {
                             progressDialog.dismiss();
-                            FirebaseAuthException e = (FirebaseAuthException )task.getException();
+                            FirebaseAuthException e = (FirebaseAuthException)task.getException();
                             Toast.makeText(Login.this, "Login Failed: "+e.getMessage(), Toast.LENGTH_SHORT).show();
                             return;
                         }
@@ -101,6 +103,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
         if (v == buttonSignupButton) {
             startActivity(new Intent(getApplicationContext(), Signup.class));
+        }
+
+        if (v == buttonForgotButton) {
+            startActivity(new Intent(getApplicationContext(), ForgotPassword.class));
         }
 
         if (v == buttonLoginButton) {

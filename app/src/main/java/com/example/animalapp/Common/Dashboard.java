@@ -42,11 +42,12 @@ public class Dashboard extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // create a new variable and use similar calls to get all info in database
                 /* Already have email */
-                /* TODO: figure out how to get these variable to the profile page and display them */
+                /* TODO: figure out how to get these variables to the profile page and display them */
                 String firstName = snapshot.child(email).child("firstName").getValue(String.class);
                 String lastName = snapshot.child(email).child("lastName").getValue(String.class);
                 String phoneNumber = snapshot.child(email).child("phoneNumber").getValue(String.class);
                 String utaID = snapshot.child(email).child("utaID").getValue(String.class);
+                String birthday = snapshot.child(email).child("birthday").getValue(String.class);
             }
 
             @Override
